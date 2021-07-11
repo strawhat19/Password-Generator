@@ -8,7 +8,7 @@ function writePassword(characterCount, includeLowerCase, includeUpperCase, inclu
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  passwordText.textContent = password;
+  // passwordText.textContent = password;
 
 }
 
@@ -70,16 +70,16 @@ function generatePassword(characterCount, includeLowerCase, includeUpperCase, in
       }
 
       console.log(dataArray);
+      var password = [];
 
       // Run the function in a loop iterating as many times as the user specified in the prompts
       for (var i = 0; i < characterCount; i++) {
-        var password = [];
         // Grabs the a random number between 1 and the max length of the array
         var dataArrayIndex = Math.floor(Math.random() * dataArray.length);
         // Uses that random number that was generated to grab a random indexed character from the array
         var randomCharacterGenerator = dataArray[dataArrayIndex];
         password.push(String.fromCharCode(dataArrayIndex));
-        
+
         // End Loop for Generating Random Characters
       }
 
