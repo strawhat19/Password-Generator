@@ -84,7 +84,6 @@ function generatePassword(characterCount, includeLowerCase, includeUpperCase, in
       }
 
       // Log to the console
-      console.log("Random Character is " + randomCharacterGenerator);
       console.log("Generated Password is " + password);
 
   // End Generate Password Function
