@@ -13,6 +13,8 @@ function writePassword() {
 
 // Generate Password Main Function
 function generatePassword() {
+  var passwordText = document.querySelector("#password");
+  passwordText.style.paddingBottom = "140px";
 
   // Get the value of how many characters the user wants in their password. Validate to make sure it's a number between 8 - 128
   var characterCount = prompt("How many characters would you like your password to be? Please enter a number between 8 to 128.");
@@ -33,13 +35,10 @@ function generatePassword() {
 
     // Where we store acceptable criteria and data
     var lowerCaseLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-
     // Setting the upper case letters
     var upperCaseLetters = ['A','B','C','D','E','F','G','H','I','J','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
     // Generating a random number from 1-9
     var numericCharacters = ['1','2','3','4','5','6','7','8','9','0'];
-
     // Had to put the special characters
     var specialCharacters = ['?',',','<','>',"'",'"',';',':','/','|','[',']','=','_','&','^','!','#','$','%','(',')','*','+','-','.','~','`','@','{','}'];
 
