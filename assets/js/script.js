@@ -14,14 +14,12 @@ function writePassword() {
 // Generate Password Main Function
 function generatePassword() {
 
-  // Adds some padding to the bottom of the password text field to ensure the 128 character passwords can fit within the container
-  var passwordText = document.querySelector("#password");
-  passwordText.style.paddingBottom = "110px";
-
-  // Get the value of how many characters the user wants in their password. Validate to make sure it's a number between 8 - 128
+  // Get the value of how many characters the user wants in their password 
+  // Validate to make sure it's a number between 8 - 128
   var characterCount = prompt("How many characters would you like your password to be? Please enter a number between 8 to 128.");
 
-    // Validates the users input for character count. If the user enters a valid response the next process will begin
+    // Validates the users input for character count 
+    // If the user enters a valid response the next process will begin
     if (isNaN(characterCount)) {
       alert("Please enter only a number between 8 and 128");
       return;
@@ -32,10 +30,19 @@ function generatePassword() {
       var includeLowerCase = confirm("Should the password include lower case letters?");
       var includeUpperCase = confirm("Should the password include upper case letters?");
       var includeNumeric = confirm("Should the password include numeric values?");
-      var includeSpecialCharacters = confirm("Should the password include special characters letters?");
+      var includeSpecialCharacters = confirm("Should the password include special characters?");
+      // Uncomment this line to include emojis
+      var includeEmojis = confirm("Should the password include emojis?");
     }
 
+      // If user says no to everything // Had to indent this code over to prevent error
+      if(!includeLowerCase && !includeUpperCase && !includeNumeric && !includeSpecialCharacters && !includeEmojis) {
+        alert("You must select at least one of the possible character types to generate password.");
+        return;
+      }
+
     // Where we store acceptable criteria and data
+    // Getting lower case letter
     var lowerCaseLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     // Setting the upper case letters
     var upperCaseLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
@@ -43,6 +50,8 @@ function generatePassword() {
     var numericCharacters = ['1','2','3','4','5','6','7','8','9','0'];
     // Had to put the special characters
     var specialCharacters = ['?',',','<','>',"'",'"',';',':','/','|','[',']','=','_','&','^','!','#','$','%','(',')','*','+','-','.','~','`','@','{','}'];
+    // Uncomment this line to include emojis
+    var emojis = ['🐲','🐳','🐵','🐯','🐬','🐼','🐺','👀','👏','👌','👮','👹','👽','👾','👿','💀','💂','💎','💦','💪','💩','💰','💻','📸','🔄','🔁','🔀','🔊','🔋','🔌','🔒','🔥','🕊','🕵','🖤','🗽','😁','😂','😅','😇','😈','😉','😋','😍','😑','😠','😤','😭','😴','😵','🙃','🙈','🙉','🙊','🙌','🙏','🚀','🛫','🛸','🤔','🤘','🤬','🥣','🦅','🦑','🦎','🦋','🦊','🦈','🦐','🦖','🧜','🧚','🧛','🧙','🤩','🤓','🤖','😎','😏'];
 
     // Initializing Total Dataset Array
     var dataArray = [];
@@ -52,14 +61,11 @@ function generatePassword() {
       if (includeUpperCase) dataArray = dataArray.concat(upperCaseLetters);
       if (includeNumeric) dataArray = dataArray.concat(numericCharacters);
       if (includeSpecialCharacters) dataArray = dataArray.concat(specialCharacters);
-
-      // If user says no to everything
-      if(!includeLowerCase && !includeUpperCase && !includeNumeric && !includeSpecialCharacters) {
-        alert("You must select at least one of the possible character types to generate a password.");
-        return;
-      }
+      if (includeEmojis) dataArray = dataArray.concat(emojis);
 
       console.log("Total Data Set in Array is " + dataArray);
+
+      // Reinitializing var password
       var password = [];
 
       // Run the function in a loop iterating as many times as the user specified in the prompts
