@@ -13,8 +13,10 @@ function writePassword() {
 
 // Generate Password Main Function
 function generatePassword() {
+
+  // Adds some padding to the bottom of the password text field to ensure the 128 character passwords can fit within the container
   var passwordText = document.querySelector("#password");
-  passwordText.style.paddingBottom = "140px";
+  passwordText.style.paddingBottom = "110px";
 
   // Get the value of how many characters the user wants in their password. Validate to make sure it's a number between 8 - 128
   var characterCount = prompt("How many characters would you like your password to be? Please enter a number between 8 to 128.");
@@ -36,8 +38,8 @@ function generatePassword() {
     // Where we store acceptable criteria and data
     var lowerCaseLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     // Setting the upper case letters
-    var upperCaseLetters = ['A','B','C','D','E','F','G','H','I','J','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    // Generating a random number from 1-9
+    var upperCaseLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    // Generating a random number from 0-9
     var numericCharacters = ['1','2','3','4','5','6','7','8','9','0'];
     // Had to put the special characters
     var specialCharacters = ['?',',','<','>',"'",'"',';',':','/','|','[',']','=','_','&','^','!','#','$','%','(',')','*','+','-','.','~','`','@','{','}'];
@@ -57,14 +59,14 @@ function generatePassword() {
         return;
       }
 
-      console.log(dataArray);
+      console.log("Total Data Set in Array is " + dataArray);
       var password = [];
 
       // Run the function in a loop iterating as many times as the user specified in the prompts
       for (var i = 0; i < characterCount; i++) {
         // Grabs the a random number between 1 and the max length of the array
-        var dataArrayIndex = Math.floor(Math.random() * dataArray.length);
-        password.push(String.fromCharCode(dataArrayIndex));
+        var dataArrayIndex = dataArray[Math.floor(Math.random() * dataArray.length)];
+        password += dataArrayIndex;
 
         // End Loop for Generating Random Characters
       }
@@ -73,7 +75,7 @@ function generatePassword() {
       console.log("Generated Password is " + password);
 
   // End Generate Password Function
-  return password.join('');
+  return password;
 }
 
 // Add event listener to generate button
