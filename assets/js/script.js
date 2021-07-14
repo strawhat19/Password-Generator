@@ -31,7 +31,6 @@ function generatePassword() {
       var includeUpperCase = confirm("Should the password include upper case letters?");
       var includeNumeric = confirm("Should the password include numeric values?");
       var includeSpecialCharacters = confirm("Should the password include special characters?");
-      // Uncomment this line to include emojis
       var includeEmojis = confirm("Should the password include emojis?");
     }
 
@@ -50,7 +49,7 @@ function generatePassword() {
     var numericCharacters = ['1','2','3','4','5','6','7','8','9','0'];
     // Had to put the special characters
     var specialCharacters = ['?',',','<','>',"'",'"',';',':','/','|','[',']','=','_','&','^','!','#','$','%','(',')','*','+','-','.','~','`','@','{','}'];
-    // Uncomment this line to include emojis
+    // Initialize emojis
     var emojis = ['🐲','🐳','🐵','🐯','🐬','🐼','🐺','👀','👏','👌','👮','👹','👽','👾','👿','💀','💂','💎','💦','💪','💩','💰','💻','📸','🔄','🔁','🔀','🔊','🔋','🔌','🔒','🔥','🕊','🕵','🖤','🗽','😁','😂','😅','😇','😈','😉','😋','😍','😑','😠','😤','😭','😴','😵','🙃','🙈','🙉','🙊','🙌','🙏','🚀','🛫','🛸','🤔','🤘','🤬','🥣','🦅','🦑','🦎','🦋','🦊','🦈','🦐','🦖','🧜','🧚','🧛','🧙','🤩','🤓','🤖','😎','😏'];
 
     // Initializing Total Dataset Array
