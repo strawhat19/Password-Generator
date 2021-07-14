@@ -16,7 +16,7 @@ function generatePassword() {
 
   // Get the value of how many characters the user wants in their password 
   // Validate to make sure it's a number between 8 - 128
-  var characterCount = prompt("How many characters would you like your password to be? Please enter a number between 8 to 128.");
+  var characterCount = prompt("How many characters would you like your password to be? Please enter a number between 8 to 128.", 10);
 
     // Validates the users input for character count 
     // If the user enters a valid response the next process will begin
